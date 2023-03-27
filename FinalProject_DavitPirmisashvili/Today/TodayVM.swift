@@ -8,7 +8,7 @@
 import Foundation
 
 class TodayVM {
-    var weather: Weather?
+    var weather: TodayWeather?
     
     
     // MARK: top section vars
@@ -17,15 +17,15 @@ class TodayVM {
     }
     
     var temperatureString: String {
-        return String(weather?.temp ?? 0) + "°C"
+        return String(format: "%.0f", weather?.temp ?? 0) + "°C"
     }
     
     var countryString: String {
-        return String(weather?.country ?? "")
+        return String(weather?.sys.country ?? "")
     }
     
     var weatherTypeString: String {
-        return String(weather?.weatherType.main ?? "")
+        return String(weather?.weather[0].main ?? "")
     }
     
     // Formatted top section vars
@@ -39,22 +39,32 @@ class TodayVM {
     
     // MARK: bottom section vars
     var humidityString: String {
-        return String(weather?.humidity ?? 0)
+        return String(format: "%.0f", weather?.humidity ?? 0) + "%"
     }
     
     var pressureString: String {
-        return String(weather?.pressure ?? 0)
+        return String(format: "%.0f", weather?.pressure ?? 0) + " hPa"
     }
     
     var windSpeedString: String {
-        return String(weather?.wind.speed ?? 0)
+        return String(format: "%.1f", weather?.wind.speed ?? 0) + " km/h"
     }
     
-    var CompassDirectionString: String {
-        var compassDirection: String = convertToCompassDirection(weather?.wind.deg ?? 0)
+    var compassDirectionString: String {
+        let compassDirection: String = convertToCompassDirection(weather?.wind.deg ?? 0)
         return compassDirection
     }
     
+    
+    
+    // weather fetcher by lat/lon
+    func fetchWeather(lat: String, lon: String, _ completion: @escaping (() -> Void)) {
+        NetworkService.shared.getData(urlString: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=d80e3e862354b82992a186d45b2f991f&units=metric") { (data: TodayWeather) in
+            self.weather = data
+            completion()
+        }
+    }
+}
     
     
     
@@ -97,10 +107,4 @@ class TodayVM {
     }
     
     
-    // weather fetcher by lat/lon
-    func fetchWeather(lat: String, lon: String, _ completion: @escaping (() -> Void)) {
-        NetworkService.shared.getData(urlString: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=d80e3e862354b82992a186d45b2f991f&units=metric") { (data: Weather) in
-            self.weather = data
-        }
-    }
-}
+

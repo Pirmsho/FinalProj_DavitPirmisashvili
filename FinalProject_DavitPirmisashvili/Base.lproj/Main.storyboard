@@ -120,7 +120,7 @@
                                                 </constraints>
                                                 <imageReference key="image" image="barometer" catalog="system" symbolScale="large"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1027 hPa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iV3-37-KTx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1027 hPa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iV3-37-KTx">
                                                 <rect key="frame" x="0.66666666666668561" y="55" width="70" height="54.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -224,8 +224,12 @@
                     <tabBarItem key="tabBarItem" title="Today" image="sun.max.fill" catalog="system" id="IzL-Lo-rOw"/>
                     <connections>
                         <outlet property="cityPlusCountryLbl" destination="Hxg-jn-TQb" id="47J-OS-HUb"/>
+                        <outlet property="compassDirectionLbl" destination="dH9-3X-bOy" id="yWo-Tb-E4j"/>
                         <outlet property="dashedLine" destination="M8S-M6-P1l" id="btT-qP-eU1"/>
+                        <outlet property="humidityLbl" destination="CBG-fw-Wlu" id="9OB-c0-rh3"/>
+                        <outlet property="pressureLbl" destination="iV3-37-KTx" id="MDb-vS-pds"/>
                         <outlet property="tempPlusWeatherLbl" destination="cfb-3m-Rmz" id="a54-dG-dtH"/>
+                        <outlet property="windSpeedLbl" destination="atE-nJ-mJc" id="P7T-rL-DVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Guj-ii-r5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

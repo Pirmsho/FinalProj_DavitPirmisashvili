@@ -8,11 +8,11 @@
 import Foundation
 
 
-struct Weather: Codable {
+struct TodayWeather: Codable {
     
     var name: String
     var main: Main
-    var weatherType: WeatherType
+    var weather: [Weather]
     var sys: Sys
     var wind: Wind
     
@@ -34,7 +34,7 @@ struct Weather: Codable {
         }
     }
     
-    struct WeatherType: Codable {
+    struct Weather: Codable {
         var main: String
     }
     
@@ -49,7 +49,7 @@ struct Weather: Codable {
 }
 
 
-extension Weather {
+extension TodayWeather {
     var temp: Double {
         return main.temp
     }
@@ -75,7 +75,7 @@ extension Weather {
     }
     
     var actualWeatherType: String {
-        return weatherType.main
+        return weather[0].main // [0] is used because there is always only one set of data coming, that being today's weather
     }
     
     var country: String {

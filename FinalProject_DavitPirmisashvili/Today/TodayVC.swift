@@ -15,18 +15,36 @@ class TodayVC: UIViewController {
     @IBOutlet weak var cityPlusCountryLbl: UILabel!
     @IBOutlet weak var tempPlusWeatherLbl: UILabel!
     
+    // MARK: bottom section vars
+    @IBOutlet weak var humidityLbl: UILabel!
+    @IBOutlet weak var pressureLbl: UILabel!
+    @IBOutlet weak var windSpeedLbl: UILabel!
+    @IBOutlet weak var compassDirectionLbl: UILabel!
     
+    // Dashed line below "Today"
     @IBOutlet weak var dashedLine: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        // TODO: fetch and setup lbls
+        
+        viewModel.fetchWeather(lat: "42.31", lon: "43.35") { [weak self] in
+            DispatchQueue.main.async {
+                self?.setupUI()
+
+            }
+        }
     }
     
     
     func setupUI() {
         drawDottedLine(start: CGPoint(x: dashedLine.bounds.minX, y: dashedLine.bounds.minY), end: CGPoint(x: dashedLine.bounds.maxX, y: dashedLine.bounds.maxY), view: dashedLine)
+        
+        cityPlusCountryLbl.text = viewModel.countryPlusCity
+        tempPlusWeatherLbl.text = viewModel.temperaturePlusWeatherType
+        humidityLbl.text = viewModel.humidityString
+        pressureLbl.text = viewModel.pressureString
+        windSpeedLbl.text = viewModel.windSpeedString
+        compassDirectionLbl.text = viewModel.compassDirectionString
     }
 
     

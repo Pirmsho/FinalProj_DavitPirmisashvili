@@ -65,7 +65,6 @@
 				930DB86829CF4D2D001C3485 /* AppDelegate.swift */,
 				930DB86A29CF4D2D001C3485 /* SceneDelegate.swift */,
 				937F023A29D0A0F2009454E5 /* Networking.swift */,
-				937F023C29D0A173009454E5 /* WeatherModel.swift */,
 				937F023E29D0AC43009454E5 /* Today */,
 				930DB86E29CF4D2D001C3485 /* Main.storyboard */,
 				930DB87129CF4D2E001C3485 /* Assets.xcassets */,
@@ -78,6 +77,7 @@
 		937F023E29D0AC43009454E5 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				937F023C29D0A173009454E5 /* WeatherModel.swift */,
 				930DB86C29CF4D2D001C3485 /* TodayVC.swift */,
 				937F023F29D0AC61009454E5 /* TodayVM.swift */,
 			);
