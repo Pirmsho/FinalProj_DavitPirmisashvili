@@ -16,6 +16,10 @@
 		937F023B29D0A0F2009454E5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023A29D0A0F2009454E5 /* Networking.swift */; };
 		937F023D29D0A173009454E5 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023C29D0A173009454E5 /* WeatherModel.swift */; };
 		937F024029D0AC61009454E5 /* TodayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023F29D0AC61009454E5 /* TodayVM.swift */; };
+		937F024329D487D9009454E5 /* ForecastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F024229D487D9009454E5 /* ForecastVC.swift */; };
+		937F024529D487F0009454E5 /* ForecastVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F024429D487F0009454E5 /* ForecastVM.swift */; };
+		937F024729D487FB009454E5 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F024629D487FB009454E5 /* ForecastModel.swift */; };
+		937F024929D49217009454E5 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F024829D49217009454E5 /* ForecastCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		937F023A29D0A0F2009454E5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		937F023C29D0A173009454E5 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		937F023F29D0AC61009454E5 /* TodayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayVM.swift; sourceTree = "<group>"; };
+		937F024229D487D9009454E5 /* ForecastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVC.swift; sourceTree = "<group>"; };
+		937F024429D487F0009454E5 /* ForecastVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVM.swift; sourceTree = "<group>"; };
+		937F024629D487FB009454E5 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		937F024829D49217009454E5 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +74,9 @@
 				930DB86A29CF4D2D001C3485 /* SceneDelegate.swift */,
 				937F023A29D0A0F2009454E5 /* Networking.swift */,
 				937F023E29D0AC43009454E5 /* Today */,
-				930DB86E29CF4D2D001C3485 /* Main.storyboard */,
+				937F024129D487AC009454E5 /* Forecast */,
 				930DB87129CF4D2E001C3485 /* Assets.xcassets */,
+				930DB86E29CF4D2D001C3485 /* Main.storyboard */,
 				930DB87329CF4D2E001C3485 /* LaunchScreen.storyboard */,
 				930DB87629CF4D2E001C3485 /* Info.plist */,
 			);
@@ -82,6 +91,17 @@
 				937F023F29D0AC61009454E5 /* TodayVM.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		937F024129D487AC009454E5 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				937F024629D487FB009454E5 /* ForecastModel.swift */,
+				937F024229D487D9009454E5 /* ForecastVC.swift */,
+				937F024429D487F0009454E5 /* ForecastVM.swift */,
+				937F024829D49217009454E5 /* ForecastCell.swift */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,10 +175,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937F024929D49217009454E5 /* ForecastCell.swift in Sources */,
+				937F024329D487D9009454E5 /* ForecastVC.swift in Sources */,
 				937F024029D0AC61009454E5 /* TodayVM.swift in Sources */,
 				930DB86D29CF4D2D001C3485 /* TodayVC.swift in Sources */,
 				930DB86929CF4D2D001C3485 /* AppDelegate.swift in Sources */,
+				937F024729D487FB009454E5 /* ForecastModel.swift in Sources */,
 				930DB86B29CF4D2D001C3485 /* SceneDelegate.swift in Sources */,
+				937F024529D487F0009454E5 /* ForecastVM.swift in Sources */,
 				937F023B29D0A0F2009454E5 /* Networking.swift in Sources */,
 				937F023D29D0A173009454E5 /* WeatherModel.swift in Sources */,
 			);

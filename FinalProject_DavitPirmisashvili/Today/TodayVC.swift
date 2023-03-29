@@ -9,7 +9,10 @@ import UIKit
 
 class TodayVC: UIViewController {
     
+    
     private let viewModel = TodayVM()
+    
+    
     
     // MARK: top section vars
     @IBOutlet weak var cityPlusCountryLbl: UILabel!
@@ -27,7 +30,8 @@ class TodayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.fetchWeather(lat: "42.31", lon: "43.35") { [weak self] in
+        
+        viewModel.fetchWeather(lat: "", lon: "") { [weak self] in
             DispatchQueue.main.async {
                 self?.setupUI()
 
@@ -35,8 +39,10 @@ class TodayVC: UIViewController {
         }
     }
     
+
     
-    func setupUI() {
+    
+    private func setupUI() {
         drawDottedLine(start: CGPoint(x: dashedLine.bounds.minX, y: dashedLine.bounds.minY), end: CGPoint(x: dashedLine.bounds.maxX, y: dashedLine.bounds.maxY), view: dashedLine)
         
         cityPlusCountryLbl.text = viewModel.countryPlusCity
@@ -60,8 +66,9 @@ class TodayVC: UIViewController {
         shapeLayer.path = path
         view.layer.addSublayer(shapeLayer)
     }
-
+    
+  
+ 
 }
-
 
 
