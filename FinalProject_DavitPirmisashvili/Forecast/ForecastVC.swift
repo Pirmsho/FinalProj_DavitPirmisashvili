@@ -31,10 +31,14 @@ class ForecastVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showSpinner(onView: tableView)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.fetchForecast(lat: "42.31", lon: "43.35") { [weak self] in
             DispatchQueue.main.async {
+                self?.removeSpinner()
                 self?.setupUI()
                 self?.tableView.reloadData()
                 
@@ -59,6 +63,18 @@ class ForecastVC: UIViewController {
         path.addLines(between: [p0, p1])
         shapeLayer.path = path
         view.layer.addSublayer(shapeLayer)
+    }
+    
+    @objc func appMovedToForeground() {
+        self.showSpinner(onView: tableView)
+        viewModel.fetchForecast(lat: "42.31", lon: "43.35") { [weak self] in
+            DispatchQueue.main.async {
+                self?.removeSpinner()
+                self?.setupUI()
+                self?.tableView.reloadData()
+                
+            }
+        }
     }
 
     

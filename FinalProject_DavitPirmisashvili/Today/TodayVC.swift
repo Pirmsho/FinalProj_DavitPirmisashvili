@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TodayVC: UIViewController {
-    
+
     
     private let viewModel = TodayVM()
-    
-    
+    var lat: Double?
+    var lon: Double?
     
     // MARK: top section vars
     @IBOutlet weak var cityPlusCountryLbl: UILabel!
@@ -30,11 +31,20 @@ class TodayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        LocationManager.shared.getUserLocation { [weak self]  location in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                self?.lat = location.coordinate.latitude
+                self?.lon = location.coordinate.longitude
+            }
+        }
+        
         
         viewModel.fetchWeather(lat: "", lon: "") { [weak self] in
             DispatchQueue.main.async {
                 self?.setupUI()
-
             }
         }
     }
@@ -72,3 +82,30 @@ class TodayVC: UIViewController {
 }
 
 
+var vSpinner : UIView?
+
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
+    }
+    
+
+}

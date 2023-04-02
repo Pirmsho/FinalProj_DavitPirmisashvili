@@ -11,7 +11,7 @@ class ForecastVM {
     var forecast: Forecast?
     
     var countryPlusCityString: String {
-        return "\(forecast?.cityName ?? ""), \(forecast?.country ?? "")" 
+        return "\(forecast?.cityName ?? ""), \(forecast?.country ?? "")"
     }
     
     
