@@ -11,6 +11,7 @@ class TodayVM {
     var weather: TodayWeather?
     
     
+    
     // MARK: top section vars
     var nameString: String {
         return String(weather?.name ?? "")

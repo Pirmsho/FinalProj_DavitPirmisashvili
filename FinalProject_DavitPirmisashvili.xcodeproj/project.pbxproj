@@ -13,7 +13,9 @@
 		930DB87029CF4D2D001C3485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930DB86E29CF4D2D001C3485 /* Main.storyboard */; };
 		930DB87229CF4D2E001C3485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930DB87129CF4D2E001C3485 /* Assets.xcassets */; };
 		930DB87529CF4D2E001C3485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930DB87329CF4D2E001C3485 /* LaunchScreen.storyboard */; };
-		936DB97B29D88D3B00CF8589 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DB97A29D88D3B00CF8589 /* LocalizationHelper.swift */; };
+		936DB97D29D988B500CF8589 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DB97C29D988B500CF8589 /* Extensions.swift */; };
+		936DB97F29D9BE6200CF8589 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DB97E29D9BE6200CF8589 /* NetworkMonitor.swift */; };
+		936DB98129D9CC6E00CF8589 /* NetworkErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DB98029D9CC6E00CF8589 /* NetworkErrorVC.swift */; };
 		937F023B29D0A0F2009454E5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023A29D0A0F2009454E5 /* Networking.swift */; };
 		937F023D29D0A173009454E5 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023C29D0A173009454E5 /* WeatherModel.swift */; };
 		937F024029D0AC61009454E5 /* TodayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F023F29D0AC61009454E5 /* TodayVM.swift */; };
@@ -32,7 +34,9 @@
 		930DB87129CF4D2E001C3485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		930DB87429CF4D2E001C3485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		930DB87629CF4D2E001C3485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		936DB97A29D88D3B00CF8589 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
+		936DB97C29D988B500CF8589 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		936DB97E29D9BE6200CF8589 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		936DB98029D9CC6E00CF8589 /* NetworkErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorVC.swift; sourceTree = "<group>"; };
 		937F023A29D0A0F2009454E5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		937F023C29D0A173009454E5 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		937F023F29D0AC61009454E5 /* TodayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayVM.swift; sourceTree = "<group>"; };
@@ -81,7 +85,9 @@
 				930DB86E29CF4D2D001C3485 /* Main.storyboard */,
 				930DB87329CF4D2E001C3485 /* LaunchScreen.storyboard */,
 				930DB87629CF4D2E001C3485 /* Info.plist */,
-				936DB97A29D88D3B00CF8589 /* LocalizationHelper.swift */,
+				936DB97C29D988B500CF8589 /* Extensions.swift */,
+				936DB97E29D9BE6200CF8589 /* NetworkMonitor.swift */,
+				936DB98029D9CC6E00CF8589 /* NetworkErrorVC.swift */,
 			);
 			path = FinalProject_DavitPirmisashvili;
 			sourceTree = "<group>";
@@ -178,8 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				936DB97B29D88D3B00CF8589 /* LocalizationHelper.swift in Sources */,
+				936DB98129D9CC6E00CF8589 /* NetworkErrorVC.swift in Sources */,
 				937F024929D49217009454E5 /* ForecastCell.swift in Sources */,
+				936DB97F29D9BE6200CF8589 /* NetworkMonitor.swift in Sources */,
 				937F024329D487D9009454E5 /* ForecastVC.swift in Sources */,
 				937F024029D0AC61009454E5 /* TodayVM.swift in Sources */,
 				930DB86D29CF4D2D001C3485 /* TodayVC.swift in Sources */,
@@ -188,6 +195,7 @@
 				930DB86B29CF4D2D001C3485 /* SceneDelegate.swift in Sources */,
 				937F024529D487F0009454E5 /* ForecastVM.swift in Sources */,
 				937F023B29D0A0F2009454E5 /* Networking.swift in Sources */,
+				936DB97D29D988B500CF8589 /* Extensions.swift in Sources */,
 				937F023D29D0A173009454E5 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,14 +346,14 @@
 				DEVELOPMENT_TEAM = 68WH86NM9D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinalProject_DavitPirmisashvili/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please Allow Your Location";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app uses your location to display details on screen.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please Allow Your Location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Please Allow Your Location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to display details on screen.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -370,14 +378,14 @@
 				DEVELOPMENT_TEAM = 68WH86NM9D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinalProject_DavitPirmisashvili/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please Allow Your Location";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app uses your location to display details on screen.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please Allow Your Location";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Please Allow Your Location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to display details on screen.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
