@@ -25,6 +25,7 @@ class TodayVC: UIViewController {
     // MARK: top section vars
     @IBOutlet weak var cityPlusCountryLbl: UILabel!
     @IBOutlet weak var tempPlusWeatherLbl: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
     
     // MARK: bottom section vars
     @IBOutlet weak var humidityLbl: UILabel!
@@ -72,6 +73,7 @@ class TodayVC: UIViewController {
         pressureLbl.text = viewModel.pressureString
         windSpeedLbl.text = viewModel.windSpeedString
         compassDirectionLbl.text = viewModel.compassDirectionString
+        weatherImage.image = UIImage(named: "\(viewModel.imageString)")
     }
 
     

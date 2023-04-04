@@ -20,9 +20,8 @@ class ForecastVC: UIViewController {
     
     
     // should be in VM
-    var dataForTableCells: [Forecast.WeatherItem] {
-        return self.viewModel.forecast?.list ?? []
-    }
+
+    var dataForTableCells: [Forecast.WeatherItem]?
 
     
     
@@ -104,32 +103,48 @@ extension ForecastVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let dataToShow = dataForTableCells[indexPath.row]
+        var dataToShow: [Forecast.WeatherItem] {
+            if indexPath.section == 0 {
+                self.dataForTableCells = viewModel.dataForToday
+            } else if indexPath.section == 1 {
+                self.dataForTableCells = viewModel.dataForTomorrow
+            } else if indexPath.section == 2 {
+                self.dataForTableCells = viewModel.dataForDayAfterTomorrow
+            } else if indexPath.section == 3 {
+                self.dataForTableCells = viewModel.dataForDayAfterTomorrow1
+            } else if indexPath.section == 4 {
+                self.dataForTableCells = viewModel.dataForDayAfterTomorrow2
+            }
+            return self.dataForTableCells!
+        }
+        
+        
+        
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath) as? ForecastCell else { return UITableViewCell() }
         
-        cell.temperatureLbl.text = String(format: "%.0f",dataToShow.main.temp) + " °C"
-        cell.weatherDescrLbl.text = dataToShow.weather[0].description
-        cell.hourLbl.text = viewModel.convertDate(dataToShow.dt_txt, dateFormat: "HH:mm")
+        cell.temperatureLbl.text = String(format: "%.0f",dataToShow[indexPath.row].main.temp) + " °C"
+        cell.weatherDescrLbl.text = dataToShow[indexPath.row].weather[0].description
+        cell.hourLbl.text = viewModel.convertDate(dataToShow[indexPath.row].dt_txt, dateFormat: "HH:mm")
 
         // MARK: image picker for forecastIcon
-        if dataToShow.weather[0].description == "clear sky" {
+        if dataToShow[indexPath.row].weather[0].description == "clear sky" {
             cell.forecastIcon.image = UIImage(named: "clearSky")
-        } else if dataToShow.weather[0].description == "few clouds" {
+        } else if dataToShow[indexPath.row].weather[0].description == "few clouds" {
             cell.forecastIcon.image = UIImage(named: "fewClouds")
-        } else if dataToShow.weather[0].description == "scattered clouds" {
+        } else if dataToShow[indexPath.row].weather[0].description == "scattered clouds" {
             cell.forecastIcon.image = UIImage(named: "scatteredClouds")
-        } else if dataToShow.weather[0].description == "broken clouds" {
+        } else if dataToShow[indexPath.row].weather[0].description == "broken clouds" {
             cell.forecastIcon.image = UIImage(named: "brokenClouds")
-        } else if dataToShow.weather[0].description == "shower rain" {
+        } else if dataToShow[indexPath.row].weather[0].description == "shower rain" {
             cell.forecastIcon.image = UIImage(named: "showerRain")
-        } else if dataToShow.weather[0].description == "rain" {
+        } else if dataToShow[indexPath.row].weather[0].description == "rain" {
             cell.forecastIcon.image = UIImage(named: "rain")
-        } else if dataToShow.weather[0].description == "thunderstorm" {
+        } else if dataToShow[indexPath.row].weather[0].description == "thunderstorm" {
             cell.forecastIcon.image = UIImage(named: "thunderstorm")
-        } else if dataToShow.weather[0].description == "snow" {
+        } else if dataToShow[indexPath.row].weather[0].description == "snow" {
             cell.forecastIcon.image = UIImage(named: "snow")
-        } else if dataToShow.weather[0].description.contains("clouds") {
+        } else if dataToShow[indexPath.row].weather[0].description.contains("clouds") {
             cell.forecastIcon.image = UIImage(named: "fewClouds")
         } else {
             cell.forecastIcon.image = UIImage(named: "mist")

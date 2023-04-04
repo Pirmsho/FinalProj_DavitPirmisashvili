@@ -36,6 +36,7 @@ struct TodayWeather: Codable {
     
     struct Weather: Codable {
         var main: String
+        var description: String
     }
     
     struct Sys: Codable {

@@ -29,6 +29,28 @@ class TodayVM {
         return String(weather?.weather[0].main ?? "")
     }
     
+    var weatherDesc: String {
+        return String(weather?.weather[0].description ?? "")
+    }
+    
+    var imageString: String {
+        if weatherDesc == "clear sky" {
+            return "clearSky"
+        } else if weatherDesc == "few clouds" {
+            return "fewClouds"
+        } else if weatherDesc == "scattered clouds" {
+            return "scatteredClouds"
+        } else if weatherDesc == "broken clouds" {
+            return "brokenClouds"
+        } else if weatherDesc == "shower rain" {
+            return "showerRain"
+        } else {
+            return weatherTypeString
+        }
+        
+    }
+ 
+    
     // Formatted top section vars
     var countryPlusCity: String {
         return nameString + ", " + countryString
@@ -37,6 +59,7 @@ class TodayVM {
     var temperaturePlusWeatherType: String {
         return temperatureString + " | " + weatherTypeString
     }
+    
     
     // MARK: bottom section vars
     var humidityString: String {
@@ -65,6 +88,8 @@ class TodayVM {
             completion()
         }
     }
+    
+    
 }
     
     
@@ -107,5 +132,6 @@ class TodayVM {
         }
     }
     
+
     
 

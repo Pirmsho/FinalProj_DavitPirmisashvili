@@ -42,7 +42,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-2w-FvG">
                                         <rect key="frame" x="188.33333333333331" y="0.0" width="4.6666666666666572" height="64.666666666666671"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxg-jn-TQb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hxg-jn-TQb">
                                                 <rect key="frame" x="0.0" y="0.0" width="4.666666666666667" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -234,6 +234,7 @@
                         <outlet property="mainView" destination="X5B-aK-oTa" id="Nkd-bG-lGe"/>
                         <outlet property="pressureLbl" destination="iV3-37-KTx" id="MDb-vS-pds"/>
                         <outlet property="tempPlusWeatherLbl" destination="cfb-3m-Rmz" id="a54-dG-dtH"/>
+                        <outlet property="weatherImage" destination="CyW-aE-NVy" id="4xg-Ts-Fmj"/>
                         <outlet property="windSpeedLbl" destination="atE-nJ-mJc" id="P7T-rL-DVJ"/>
                     </connections>
                 </viewController>
@@ -400,7 +401,6 @@
         <!--Network ErrorVC-->
         <scene sceneID="Ars-2q-EVr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Iaq-fH-pEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NetworkErrorVC" id="Y9A-gt-RoH" customClass="NetworkErrorVC" customModule="FinalProject_DavitPirmisashvili" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Af8-wB-jCi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -421,6 +421,7 @@
                         </constraints>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iaq-fH-pEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682" y="963"/>
         </scene>
